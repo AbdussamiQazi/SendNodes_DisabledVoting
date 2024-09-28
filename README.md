@@ -2,6 +2,7 @@
 
 # Voting System for Disabled People
 
+#https://youtu.be/dO_7qecCIao(System working video)
 This project aims to create an accessible, secure, and user-friendly voting system tailored for individuals with disabilities, providing features like text-to-speech, face identification, and information on nearby voting booths.
 
 ## Table of Contents
@@ -19,6 +20,8 @@ This project aims to create an accessible, secure, and user-friendly voting syst
 
 Voting is a fundamental right, and this project is designed to ensure that disabled individuals, including those with visual or motor impairments, can participate in elections without difficulties. The system uses speech recognition, text-to-speech technologies, and facial recognition to make the voting process easier and more inclusive.
 
+##Working Video
+https://we
 ## Features
 
 - *Accessible Design*: Built with accessibility in mind, providing screen reader compatibility and large, easy-to-click buttons.
@@ -49,7 +52,46 @@ Voting is a fundamental right, and this project is designed to ensure that disab
 
 - *Text-to-Speech API*:
   - [ResponsiveVoice API](https://responsivevoice.org/)
+Here’s a shortened version of your tech stack for blockchain integration, focusing on key terms:
 
+---
+
+# Tech Stack for Blockchain Integration
+
+## 1. *Blockchain Platform*:
+   - *Ethereum*: Chosen for its mature ecosystem, security, and strong developer community; essential for smart contracts in our voting system.
+
+## 2. *Smart Contract Development*:
+   - *Solidity*: Primary language for writing Ethereum smart contracts, enabling secure voting processes.
+   - *OpenZeppelin*: Libraries used for secure, standardized smart contracts, reducing vulnerabilities.
+
+## 3. *Smart Contract Management*:
+   - *Truffle*: For smart contract management, testing, and deployment on Ethereum.
+   - *Ganache*: Local blockchain simulation for development and testing.
+   - *Remix IDE*: Quick prototyping and debugging of smart contracts.
+
+## 4. *Blockchain Interaction*:
+   - *Web3.js*: Enables frontend interaction with Ethereum, user accounts, and contract calls.
+   - *MetaMask*: Wallet for secure transactions and blockchain interaction.
+
+## 5. *Frontend (Blockchain Specific)*:
+   - *React.js*: Integrated for dynamic UI updates based on blockchain transactions.
+   - *Ethers.js*: Enhances security and flexibility of Ethereum interactions.
+
+## 6. *Testing*:
+   - *Chai and Mocha*: For unit testing of smart contracts, ensuring robustness.
+
+## 7. *Deployment*:
+   - *Infura*: API infrastructure connecting to Ethereum mainnet and test networks.
+   - *IPFS*: For tamper-proof storage of voting-related files.
+
+## 8. *Security and Optimization*:
+   - *MythX*: Analyzes smart contracts for security vulnerabilities.
+   - *Gas Optimization*: Techniques employed to minimize transaction costs.
+
+---
+
+This stack ensures a decentralized, transparent, and secure voting system that empowers individuals, especially those with disabilities, to vote confidently.
 - *Version Control*:
   - Git & GitHub
 
@@ -79,6 +121,13 @@ Make sure you have the following installed:
 - Python (for Flask and OpenCV)
 - Node.js
 - MongoDB
+
+*Images*
+---
+![image](https://github.com/user-attachments/assets/e4f7cd54-2112-4e88-af47-d915c52c13b3)
+![image](https://github.com/user-attachments/assets/d4e0cf76-f4bf-4e1b-ad65-30912328bb9c)
+![image](https://github.com/user-attachments/assets/05bf4464-25fa-4f90-8544-edb49f5bee0c)
+![image](https://github.com/user-attachments/assets/39743d82-c9b6-483f-86c7-93196f0355c0)
 
 ### Installation Steps
 
