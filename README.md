@@ -28,6 +28,7 @@ Voting is a fundamental right, and this project is designed to ensure that disab
 - *Google Maps API Integration*: Provides users with information about nearby voting booths, including wheelchair accessibility.
 - *Secure Voting*: Ensures secure submission of votes with protection against tampering or fraud.
 - *Responsive UI*: Works across all devices—mobile, tablets, or desktops, ensuring easy access.
+- https://github.com/user-attachments/assets/2e9dcd50-97cd-421d-8862-6abec7cdf297
 
 ## Technologies Used
 
