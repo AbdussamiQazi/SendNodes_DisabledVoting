@@ -32,6 +32,9 @@ https://we
 - *Secure Voting*: Ensures secure submission of votes with protection against tampering or fraud.
 - *Responsive UI*: Works across all devices—mobile, tablets, or desktops, ensuring easy access.
 - https://github.com/user-attachments/assets/2e9dcd50-97cd-421d-8862-6abec7cdf297
+https://github.com/user-attachments/assets/1c52b1ad-d136-425c-a1df-5c186f900b02
+
+
 
 ## Technologies Used
 
