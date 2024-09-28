@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voter Form</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            margin-top: 50px;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .radio-label {
+            display: block;
+            margin: 10px 0;
+            font-weight: normal;
+        }
+
+        .btn-primary {
+            margin-top: 20px;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Welcome, {{ user }}</h1>
+        <p>Select your candidate:</p>
+
+        <form>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" id="bjp" name="candidate" value="BJP">
+                <label class="form-check-label radio-label" for="bjp">BJP</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" id="congress" name="candidate" value="CONGRESS">
+                <label class="form-check-label radio-label" for="congress">CONGRESS</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" id="aap" name="candidate" value="AAP">
+                <label class="form-check-label radio-label" for="aap">AAP</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" id="nota" name="candidate" value="NOTA">
+                <label class="form-check-label radio-label" for="nota">NOTA</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit Vote</button>
+        </form>
+    </div>
+
+    <!-- ResponsiveVoice and jQuery -->
+    <script src="https://code.responsivevoice.org/responsivevoice.js?key=6AqfGK6s"></script> <!-- Replace with your API key -->
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+    <script>
+        // Function to speak the entire content of the body when the page loads
+        function speakPageContent() {
+            var pageText = document.body.innerText; // Get all text content from the body
+            responsiveVoice.speak(pageText, "UK English Male"); // Speak the page text
+        }
+
+        // Function to speak selected text
+        function getSelectionText() {
+            var text = "";
+            if (window.getSelection) {
+                text = window.getSelection().toString(); // Get selected text
+            } else if (document.selection && document.selection.type != "Control") {
+                text = document.selection.createRange().text; // For older browsers (IE)
+            }
+            return text;
+        }
+
+        $(document).ready(function () {
+            // Speak the entire page when the document loads
+            speakPageContent();
+
+            // Speak selected text on mouseup (when text is highlighted and mouse is released)
+            $(document).mouseup(function () {
+                setTimeout(function () { // Small timeout to handle text selection properly
+                    var selectedText = getSelectionText();
+                    if (selectedText) {
+                        responsiveVoice.cancel(); // Stop any current speech
+                        responsiveVoice.speak(selectedText, "UK English Male"); // Speak the selected text
+                    }
+                }, 1);
+            });
+        });
+    </script>
+
+</body>
+
+</html>

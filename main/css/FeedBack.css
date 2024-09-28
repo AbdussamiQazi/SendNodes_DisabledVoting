@@ -1,0 +1,109 @@
+/* General styling */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    position: relative;
+    /* Make the back button relative to this container */
+}
+
+h1,
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #28a745;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+#feedbackDisplay {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.feedback-item {
+    padding: 15px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.feedback-item h3 {
+    margin: 0;
+    color: #555;
+}
+
+.feedback-item p {
+    margin: 5px 0 0;
+    color: #777;
+}
+
+
+/* Back button styling */
+
+
+/* Back button styling */
+
+#backButton {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    /* Changed to left */
+    background-color: #007bff;
+    /* Blue color */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#backButton:hover {
+    background-color: #0056b3;
+    /* Darker blue on hover */
+}

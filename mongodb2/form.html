@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/form.css">
+</head>
+<body>
+    <div class="container">
+        <form action="/form" method="post"> <!-- Updated action URL -->
+            <label for="name">Name :</label>
+            <input type="text" id="name" name="name"> <!-- Correct name attribute -->
+            
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email"> <!-- Added id for email input -->
+            
+            <label for="regd_no">UD ID :</label>
+            <input type="text" id="regd_no" name="regd_no"> <!-- Corrected id attribute -->
+            
+            <label for="phno">Phone Number :</label>
+            <input type="text" id="phno" name="phno">
+            
+            <label for="disability">Disability :</label>
+            <select name="disability" id="disability">
+                <option value="Auditory">Auditory</option>
+                <option value="Visual">Visual</option>
+                <option value="Physical">Physical</option>
+            </select>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

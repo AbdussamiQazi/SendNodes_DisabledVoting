@@ -1,0 +1,152 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffe6f0; /* Light Pink Background */
+    margin: 0;
+    padding: 0;
+    color: #333; /* Dark Text for contrast */
+}
+
+.container {
+    max-width: 600px;
+    margin: 100px auto; /* Added margin for fixed navbar */
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 16px rgba(0,0,0,0.1);
+}
+
+/* Navigation Bar */
+.navbar {
+    background-color: #ff66b3; /* Pink Navbar */
+    padding: 10px 0;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex; /* Use flexbox for alignment */
+    justify-content: space-between; /* Space out items */
+    align-items: center; /* Center items vertically */
+}
+
+.navbar h1 {
+    margin: 0;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.audio-icon {
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    margin-right: 20px;
+    transition: transform 0.3s ease;
+}
+
+.audio-icon:hover {
+    transform: scale(1.2); /* Scale up on hover */
+}
+
+/* Heading */
+h1 {
+    color: #ff66b3; /* Pink Heading */
+}
+
+/* Step Section */
+.step {
+    margin: 20px 0;
+    background-color: #ffe6f0; /* Light Pink for steps */
+    border: 1px solid #ff66b3; /* Pink border */
+    border-radius: 10px;
+    padding: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step:hover {
+    transform: translateY(-5px); /* Raise effect on hover */
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.1); /* Shadow on hover */
+}
+
+.step img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px; /* Rounded corners for images */
+}
+
+.step p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* Progress Bar */
+.progress-bar {
+    height: 10px;
+    background-color: #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.progress-bar-inner {
+    height: 100%;
+    width: 33%;
+    background-color: #ff66b3; /* Pink Progress Bar */
+    border-radius: 5px;
+}
+
+/* Button Styling */
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff66b3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 10px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #e60073; /* Darker Pink on Hover */
+}
+
+/* Video Box Styling */
+.video-container {
+    display: flex;
+    justify-content: space-between; /* Space between video boxes */
+    margin-top: 20px;
+}
+
+.video-box {
+    flex: 1; /* Take equal space */
+    margin: 0 10px; /* Space between videos */
+    background-color: #ffe6f0; /* Light Pink for video boxes */
+    border: 1px solid #ff66b3; /* Pink border */
+    border-radius: 10px;
+    padding: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 400px; /* Fixed height for video boxes */
+}
+
+.video-box:hover {
+    transform: translateY(-5px); /* Raise effect on hover */
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.1); /* Shadow on hover */
+}
+
+.video-box h2 {
+    margin: 0 0 10px;
+}
+
+iframe {
+    width: 100%;
+    height: 300px; /* Adjust height for videos */
+    border: none;
+    border-radius: 10px; /* Rounded corners for videos */
+}

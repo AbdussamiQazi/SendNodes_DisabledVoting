@@ -1,0 +1,75 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Voting System</title>
+        <style>
+            body {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                background-color: #f0f0f0;
+                font-family: Arial, sans-serif;
+            }
+            h1 {
+                color: #333;
+            }
+            a {
+                text-decoration: none;
+                padding: 15px 30px;
+                margin: 10px;
+                border: 1px solid #007BFF;
+                border-radius: 5px;
+                background-color: #007BFF;
+                color: white;
+                transition: background-color 0.3s;
+            }
+            a:hover {
+                background-color: #0056b3;
+            }
+            .container {
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Welcome to the Voting System</h1>
+            <p>Please choose an option:</p>
+            <a href="{{ url_for('register_face') }}">Register Face</a>
+            <a href="{{ url_for('login') }}">Login</a>
+        </div>
+
+        <script>
+            // JavaScript code for any client-side functionality
+            document.addEventListener('DOMContentLoaded', (event) => {
+                console.log("Page Loaded");
+                // Add more JavaScript functionality here if needed
+            });
+        </script>
+        <script> 
+function getSelectionText() {
+    var text = "";
+    if (window.getSelection) {
+        text = window.getSelection().toString();
+    // for Internet Explorer 8 and below. For Blogger, you should use &amp;&amp; instead of &&.
+    } else if (document.selection && document.selection.type != "Control") { 
+        text = document.selection.createRange().text;
+    }
+    return text;
+}
+$(document).ready(function (){ // when the document has completed loading
+   $(document).mouseup(function (e){ // attach the mouseup event for all div and pre tags
+      setTimeout(function() { // When clicking on a highlighted area, the value stays highlighted until after the mouseup event, and would therefore stil be captured by getSelection. This micro-timeout solves the issue. 
+         responsiveVoice.cancel(); // stop anything currently being spoken
+         responsiveVoice.speak(getSelectionText()); //speak the text as returned by getSelectionText
+      }, 1);
+   });
+});
+</script>
+    </body>
+    </html>
+

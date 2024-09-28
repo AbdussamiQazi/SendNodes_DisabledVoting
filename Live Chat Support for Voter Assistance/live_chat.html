@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessible Voting System</title>
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffffff; /* White background */
+            color: #333; /* Dark text color */
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; /* Full viewport height */
+            margin: 0; /* Remove default margin */
+        }
+
+        /* Chat Box Styles */
+        #chatbox {
+            width: 100%;
+            max-width: 450px; /* Increased max width for a slightly larger chatbox */
+            border: 2px solid #ff4081; /* Pink border */
+            border-radius: 10px; /* Rounded corners */
+            padding: 15px; /* Increased padding for breathing space */
+            background-color: #f8f8f8; /* Light background for chat box */
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2); /* Enhanced shadow for more depth */
+            transition: box-shadow 0.3s ease; /* Smooth shadow transition */
+        }
+
+        /* Chat Messages Area */
+        #messages {
+            height: 220px; /* Increased height for more content visibility */
+            overflow-y: auto; /* Scroll if overflow */
+            margin-bottom: 10px;
+            border: 1px solid #ff4081; /* Pink border */
+            border-radius: 5px; /* Rounded corners */
+            background-color: white; /* White background for messages */
+            padding: 5px;
+        }
+
+        /* Individual Message Styles */
+        #messages div {
+            margin: 5px 0; /* Margin between messages */
+            padding: 8px; /* Padding for message bubbles */
+            border-radius: 5px; /* Rounded corners */
+        }
+
+        /* User Message Styling */
+        #messages div:nth-child(odd) {
+            background-color: #ffe0f0; /* Light pink for user messages */
+            text-align: left; /* Align user messages to the left */
+        }
+
+        /* Support Message Styling */
+        #messages div:nth-child(even) {
+            background-color: #f1f8ff; /* Light blue for support messages */
+            text-align: left; /* Align support messages to the left */
+        }
+
+        /* Dropdown Menu Styling */
+        #questionSelect {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ff4081; /* Pink border */
+            border-radius: 5px; /* Rounded corners */
+            margin-bottom: 10px; /* Spacing from button */
+            font-size: 14px;
+            background-color: #fff;
+            color: #333;
+        }
+
+        /* Button Styles */
+        .btn {
+            background-color: #ff4081; /* Pink button */
+            color: white; /* White text */
+            padding: 10px 15px; /* Padding for button */
+            border: none; /* No border */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor */
+            transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+            width: 100%; /* Full width for button */
+        }
+
+        /* Button Hover Effect */
+        .btn:hover {
+            background-color: #f50057; /* Darker pink on hover */
+            transform: scale(1.05); /* Slightly enlarge button */
+        }
+
+        /* Button Active Effect */
+        .btn:active {
+            transform: scale(0.95); /* Slightly shrink button on click */
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="chatbox">
+    <div id="messages"></div>
+    <select id="questionSelect" class="dropdown">
+        <option value="">Select a question</option>
+        <option value="register">How do I register to vote?</option>
+        <option value="eligibility">What are the eligibility requirements for voting?</option>
+        <option value="check_registration">How can I check if I am registered to vote?</option>
+        <option value="polling_place">Where can I find my polling place?</option>
+        <option value="what_to_bring">What should I bring to the polls?</option>
+        <option value="vote_by_mail">Can I vote by mail?</option>
+        <option value="problems_at_polls">What if I encounter problems at the polls?</option>
+        <option value="change_vote">Can I change my vote after submitting it?</option>
+        <option value="disability_accommodations">What accommodations are available for individuals with disabilities?</option>
+        <option value="learn_about_candidates">How can I learn about the candidates and measures on the ballot?</option>
+        <option value="missed_deadline">What if I forgot to register before the deadline?</option>
+        <option value="voting_hours">What are the voting hours on election day?</option>
+    </select>
+    <button id="sendBtn" class="btn">Send</button>
+</div>
+
+<script>
+    document.getElementById('sendBtn').addEventListener('click', function() {
+        var selectedQuestion = document.getElementById('questionSelect').value;
+        var messages = document.getElementById('messages');
+        
+        var answer = '';
+
+        switch (selectedQuestion) {
+            case 'register':
+                answer = "You can register to vote online through your state's election website, by mail with a paper form, or in person at designated locations. Be sure to check the registration deadlines for your state.";
+                break;
+            case 'eligibility':
+                answer = "To be eligible to vote, you must be a citizen of the country, a resident of the state where you plan to vote, and at least 18 years old by Election Day. Some states allow 17-year-olds to vote in primary elections if they will be 18 by the general election.";
+                break;
+            case 'check_registration':
+                answer = "You can check your voter registration status on your state’s election website. You’ll typically need to provide your name, date of birth, and possibly other identifying information.";
+                break;
+            case 'polling_place':
+                answer = "You can find your polling place by visiting your state’s election office website or using voter registration tools. You may also be able to find this information on your voter registration card.";
+                break;
+            case 'what_to_bring':
+                answer = "Requirements vary by state. Some states require a photo ID, while others may accept non-photo identification. Check your state’s requirements to see what you need to bring.";
+                break;
+            case 'vote_by_mail':
+                answer = "To vote by mail, you need to request an absentee ballot from your state’s election office. You can often do this online. Fill out your ballot and return it according to your state’s instructions before the deadline.";
+                break;
+            case 'problems_at_polls':
+                answer = "If you encounter problems at the polls, ask a poll worker for assistance. If necessary, you can contact a voter protection hotline for help.";
+                break;
+            case 'change_vote':
+                answer = "Once your vote is submitted, it generally cannot be changed. However, if you are voting in person, you may be able to request a new ballot before submitting it.";
+                break;
+            case 'disability_accommodations':
+                answer = "Polling places are required to be accessible. This includes wheelchair ramps, accessible voting machines, and assistance from poll workers. Check with your local election office for specific accommodations available.";
+                break;
+            case 'learn_about_candidates':
+                answer = "You can find information about candidates and measures through official state election websites, non-partisan voter guides, and local news outlets. Many organizations also provide candidate comparison tools.";
+                break;
+            case 'missed_deadline':
+                answer = "Some states offer same-day registration, allowing you to register and vote on Election Day. Check your state's regulations for more information.";
+                break;
+            case 'voting_hours':
+                answer = "Polling hours vary by state. Most polls open between 6 AM and 8 AM and close between 7 PM and 9 PM. Check your state’s election office for specific times.";
+                break;
+            default:
+                answer = "Please select a valid question.";
+                break;
+        }
+
+        if (answer) {
+            var messageDiv = document.createElement('div');
+            messageDiv.textContent = answer;
+            messageDiv.classList.add('message');
+            messages.appendChild(messageDiv);
+        }
+    });
+</script>
+
+</body>
+</html>

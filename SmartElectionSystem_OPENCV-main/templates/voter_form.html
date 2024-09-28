@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voter Form</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            margin-top: 50px;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .radio-label {
+            display: block;
+            margin: 10px 0;
+            font-weight: normal;
+        }
+
+        .btn-primary {
+            margin-top: 20px;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Welcome, {{ user }}</h1>
+        <p>Select your candidate:</p>
+
+        <form action="{{ url_for('submit_vote') }}" method="POST">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" id="bjp" name="candidate" value="BJP">
+                <label class="form-check-label radio-label" for="bjp">BJP</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" id="congress" name="candidate" value="CONGRESS">
+                <label class="form-check-label radio-label" for="congress">CONGRESS</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" id="aap" name="candidate" value="AAP">
+                <label class="form-check-label radio-label" for="aap">AAP</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" id="nota" name="candidate" value="NOTA">
+                <label class="form-check-label radio-label" for="nota">NOTA</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit Vote</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS (Optional) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.responsivevoice.org/responsivevoice.js?key=6AqfGK6s"></script>  <!-- replace with KEY-->
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script> 
+function getSelectionText() {
+    var text = "";
+    if (window.getSelection) {
+        text = window.getSelection().toString();
+    // for Internet Explorer 8 and below. For Blogger, you should use &amp;&amp; instead of &&.
+    } else if (document.selection && document.selection.type != "Control") { 
+        text = document.selection.createRange().text;
+    }
+    return text;
+}
+$(document).ready(function (){ // when the document has completed loading
+   $(document).mouseup(function (e){ // attach the mouseup event for all div and pre tags
+      setTimeout(function() { // When clicking on a highlighted area, the value stays highlighted until after the mouseup event, and would therefore stil be captured by getSelection. This micro-timeout solves the issue. 
+         responsiveVoice.cancel(); // stop anything currently being spoken
+         responsiveVoice.speak(getSelectionText()); //speak the text as returned by getSelectionText
+      }, 1);
+   });
+});
+</script>
+
+</body>
+
+</html>

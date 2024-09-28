@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text Translation Using Google Translate Widget</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        
+        h1,
+        p {
+            margin-bottom: 10px;
+        }
+        
+        #google_translate_element {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Translation Application</h1>
+    <p>
+        This website content can be translated into any language using the Google Translate widget below.
+    </p>
+    <p id="textToTranslate">
+        Hello, welcome to our website! This application automatically translates text into various languages. Select your language below.
+    </p>
+
+    <!-- Google Translate Widget -->
+    <div id="google_translate_element"></div>
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                    pageLanguage: "en"
+                },
+                "google_translate_element"
+            );
+        }
+    </script>
+
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+
+</html>

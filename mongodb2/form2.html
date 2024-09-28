@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting Form for Physically Abled Individuals</title>
+    <link rel="stylesheet" href="/form.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Voting Assistance Form</h1>
+        <p>This form is for individuals who are physically abled but cannot vote offline due to travel or other reasons.</p>
+        <form action="/form2" method="post"> <!-- Updated action URL -->
+            <label for="name">Name :</label>
+            <input type="text" id="name" name="name" required> <!-- Added 'required' -->
+            
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" required> <!-- Added 'required' -->
+            
+            <label for="voter_id">Voter ID :</label>
+            <input type="text" id="voter_id" name="voter_id" required> <!-- Added Voter ID field -->
+            
+            <label for="phno">Phone Number :</label>
+            <input type="text" id="phno" name="phno" required> <!-- Added 'required' -->
+            
+            <label for="reason">Reason for Online Voting :</label>
+            <textarea id="reason" name="reason" rows="4" required></textarea> <!-- Added a reason field -->
+            
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

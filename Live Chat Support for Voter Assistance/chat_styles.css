@@ -1,0 +1,93 @@
+/* General Body Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ffffff; /* White background */
+    color: #333; /* Dark text color */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Full viewport height */
+    margin: 0; /* Remove default margin */
+}
+
+/* Chat Box Styles */
+#chatbox {
+    width: 100%;
+    max-width: 400px;
+    border: 2px solid #ff4081; /* Pink border */
+    border-radius: 10px; /* Rounded corners */
+    padding: 10px;
+    background-color: #f8f8f8; /* Light background for chat box */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Enhanced shadow for depth */
+    transition: box-shadow 0.3s ease; /* Smooth shadow transition */
+}
+
+/* Chat Messages Area */
+#messages {
+    height: 200px; /* Fixed height for scrolling */
+    overflow-y: auto; /* Scroll if overflow */
+    margin-bottom: 10px;
+    border: 1px solid #ff4081; /* Pink border */
+    border-radius: 5px; /* Rounded corners */
+    background-color: white; /* White background for messages */
+    padding: 5px;
+}
+
+/* Individual Message Styles */
+#messages div {
+    margin: 5px 0; /* Margin between messages */
+    padding: 8px; /* Padding for message bubbles */
+    border-radius: 5px; /* Rounded corners */
+}
+
+/* User Message Styling */
+#messages div:nth-child(odd) {
+    background-color: #ffe0f0; /* Light pink for user messages */
+    text-align: left; /* Align user messages to the left */
+}
+
+/* Support Message Styling */
+#messages div:nth-child(even) {
+    background-color: #f1f8ff; /* Light blue for support messages */
+    text-align: left; /* Align support messages to the left */
+}
+
+/* Message Input Field */
+#messageInput {
+    width: 70%; /* 70% width for input */
+    padding: 10px; /* Padding inside input */
+    border: 2px solid #ff4081; /* Pink border */
+    border-radius: 5px; /* Rounded corners */
+    margin-right: 10px; /* Space between input and button */
+    transition: border 0.3s ease; /* Smooth border transition */
+}
+
+/* Input Focus Effect */
+#messageInput:focus {
+    border-color: #f50057; /* Darker pink when focused */
+    outline: none; /* Remove default outline */
+}
+
+/* Button Styles */
+.btn {
+    background-color: #ff4081; /* Pink button */
+    color: white; /* White text */
+    padding: 10px 15px; /* Padding for button */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+}
+
+/* Button Hover Effect */
+.btn:hover {
+    background-color: #f50057; /* Darker pink on hover */
+    transform: scale(1.05); /* Slightly enlarge button */
+}
+
+/* Button Active Effect */
+.btn:active {
+    transform: scale(0.95); /* Slightly shrink button on click */
+}

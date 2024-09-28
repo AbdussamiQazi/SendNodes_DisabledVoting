@@ -1,0 +1,54 @@
+body {
+    background-color: #fce4ec; /* Light pink background */
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    padding: 20px;
+    max-width: 500px;
+    margin: 100px auto;
+    background-color:  #ba3636; /* White background for the container */
+    color: #333; /* Dark text color */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(234, 171, 171, 0.1); /* Soft shadow */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+}
+
+form label {
+    font-size: 20px; /* Slightly smaller for better alignment */
+    color: #d81b60; /* Pink color for labels */
+}
+
+form input, form select {
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #d81b60; /* Pink border */
+    outline: none;
+    transition: border-color 0.3s; /* Smooth transition for focus */
+}
+
+form input:focus, form select:focus {
+    border-color: #c2185b; /* Darker pink on focus */
+}
+
+form button {
+    padding: 10px;
+    background-color: #d81b60; /* Pink button */
+    border: none;
+    border-radius: 10px;
+    margin-top: 10px;
+    font-size: 20px; /* Slightly smaller for better fit */
+    color: #fff; /* White text */
+    cursor: pointer; /* Pointer cursor for button */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+form button:hover {
+    background-color: #c2185b; /* Darker pink on hover */
+}

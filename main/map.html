@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Government Schools Near Me</title>
+
+    <!-- Include Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        #map {
+            height: 100%; /* Height for the map */
+            border: 2px solid black;
+        }
+
+        /* Styling for the header */
+        h1 {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        /* Ensure both map and table containers take full height */
+        .row {
+            margin-top: 20px;
+        }
+
+        /* Container for map and table */
+        .map-container,
+        .table-container {
+            height: 600px; /* Ensures both are the same height */
+            overflow: hidden; /* Prevent overflow */
+        }
+
+        /* Make the table scrollable if necessary */
+        .table-container {
+            overflow-y: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Election Booths Near Me</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 map-container">
+                <div id="map"></div> <!-- Map container -->
+            </div>
+            <div class="col-md-6 table-container">
+                <table class="table table-striped table-bordered">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Booth Name</th>
+                            <th scope="col">Get Directions</th>
+                            <th scope="col">Phone Number</th>
+                            <th scope="col">Wheelchair Accessible</th>
+                        </tr>
+                    </thead>
+                    <tbody id="placesTableBody">
+                        <!-- Rows will be inserted here dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize and add the map
+        function initMap() {
+            // Default location (centered on user's location)
+            navigator.geolocation.getCurrentPosition(function (position) {
+                const userLocation = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+
+                // Create the map centered on user's location
+                const map = new google.maps.Map(document.getElementById('map'), {
+                    center: userLocation,
+                    zoom: 13.5
+                });
+
+                // Create a marker for user's location
+                const marker = new google.maps.Marker({
+                    position: userLocation,
+                    map: map,
+                    title: "You are here"
+                });
+
+                // Perform Places API search for government schools near the user's location
+                const request = {
+                    location: userLocation,
+                    radius: '5000', // Search within a 5km radius
+                    type: ['school'],
+                    keyword: 'government school'
+                };
+
+                const service = new google.maps.places.PlacesService(map);
+                service.nearbySearch(request, function (results, status) {
+                    if (status === google.maps.places.PlacesServiceStatus.OK) {
+                        for (let i = 0; i < results.length; i++) {
+                            const school = results[i];
+                            createMarker(school);
+                            addRowToTable(school);
+                        }
+                    }
+                });
+
+                // Create a marker for each school found
+                function createMarker(place) {
+                    const marker = new google.maps.Marker({
+                        map: map,
+                        position: place.geometry.location
+                    });
+
+                    // Add info window to the marker
+                    const infowindow = new google.maps.InfoWindow();
+                    google.maps.event.addListener(marker, 'click', function () {
+                        infowindow.setContent(place.name);
+                        infowindow.open(map, this);
+                    });
+                }
+
+                // Function to generate random phone numbers
+                function generateRandomPhoneNumber() {
+                    const prefix = ['7', '8', '9']; // Valid Indian mobile number prefixes
+                    let phoneNumber = prefix[Math.floor(Math.random() * prefix.length)];
+                    for (let i = 0; i < 9; i++) {
+                        phoneNumber += Math.floor(Math.random() * 10);
+                    }
+                    return phoneNumber;
+                }
+
+                // Function to add a row to the table for each school
+                function addRowToTable(place) {
+                    const tableBody = document.getElementById('placesTableBody');
+
+                    // Create a new table row
+                    const row = document.createElement('tr');
+
+                    // School name cell
+                    const nameCell = document.createElement('td');
+                    nameCell.textContent = place.name;
+                    row.appendChild(nameCell);
+
+                    // Directions cell with Google Maps link
+                    const directionsCell = document.createElement('td');
+                    const directionsLink = document.createElement('a');
+                    directionsLink.textContent = 'Get Directions';
+                    directionsLink.href = `https://www.google.com/maps/dir/?api=AIzaSyBcfm6dAMCDP6q4mzXBNi4jBUbxi0GMFn4&destination=${encodeURIComponent(place.name)}&destination_place_id=${place.place_id}`;
+                    directionsLink.target = '_blank';
+                    directionsLink.classList.add('btn', 'btn-primary');
+                    directionsCell.appendChild(directionsLink);
+                    row.appendChild(directionsCell);
+
+                    // Phone number cell
+                    const phoneNumberCell = document.createElement('td');
+                    phoneNumberCell.textContent = generateRandomPhoneNumber(); // Add random phone number
+                    row.appendChild(phoneNumberCell);
+
+                    // Wheelchair accessibility cell
+                    const wheelchairCell = document.createElement('td');
+                    const wheelchairAccessible = place.wheelchair_accessible_entrance !== undefined ? (place.wheelchair_accessible_entrance ? "Yes" : "No") : "N/A";
+                    wheelchairCell.textContent = wheelchairAccessible;
+                    row.appendChild(wheelchairCell);
+
+                    // Add the row to the table body
+                    tableBody.appendChild(row);
+                }
+            });
+        }
+    </script>
+
+    <!-- Load the Google Maps JavaScript API -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBcfm6dAMCDP6q4mzXBNi4jBUbxi0GMFn4&libraries=places&callback=initMap">
+    </script>
+    <script src="https://code.responsivevoice.org/responsivevoice.js?key=6AqfGK6s"></script>  <!-- replace with KEY-->
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script> 
+    function getSelectionText() {
+        var text = "";
+        if (window.getSelection) {
+            text = window.getSelection().toString();
+        // for Internet Explorer 8 and below. For Blogger, you should use &amp;&amp; instead of &&.
+        } else if (document.selection && document.selection.type != "Control") { 
+            text = document.selection.createRange().text;
+        }
+        return text;
+    }
+    $(document).ready(function (){ // when the document has completed loading
+       $(document).mouseup(function (e){ // attach the mouseup event for all div and pre tags
+          setTimeout(function() { // When clicking on a highlighted area, the value stays highlighted until after the mouseup event, and would therefore stil be captured by getSelection. This micro-timeout solves the issue. 
+             responsiveVoice.cancel(); // stop anything currently being spoken
+             responsiveVoice.speak(getSelectionText()); //speak the text as returned by getSelectionText
+          }, 1);
+       });
+    });
+    </script>
+</body>
+
+</html>

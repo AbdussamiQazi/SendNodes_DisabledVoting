@@ -1,0 +1,54 @@
+<!-- index.html (Frontend) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessible Voting System</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: white;
+            color: #333;
+        }
+        .pink-theme {
+            background-color: #ffebee;
+            color: #c2185b;
+        }
+        .high-contrast {
+            background-color: black;
+            color: white;
+        }
+        .btn {
+            background-color: #ff4081;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #f50057;
+        }
+    </style>
+</head>
+<body class="{{ contrast }}">
+    <h1 style="font-size: {{ font_size }};">Welcome to the Accessible Voting System</h1>
+    <form method="POST">
+        <label for="font-size">Font Size:</label>
+        <select name="font-size" id="font-size">
+            <option value="16px">Default</option>
+            <option value="18px">Medium</option>
+            <option value="20px">Large</option>
+        </select>
+
+        <label for="contrast">Color Contrast:</label>
+        <select name="contrast" id="contrast">
+            <option value="default">Default (Pink & White)</option>
+            <option value="high-contrast">High Contrast (Black & White)</option>
+        </select>
+
+        <button type="submit" class="btn">Apply</button>
+    </form>
+</body>
+</html>

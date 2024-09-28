@@ -1,0 +1,193 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto:wght@500&display=swap");
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-text-color: #d81b60; /* Pink */
+    --secondary-text-color: #F2ACB9; /* Lighter Pink */
+    --bg-color: #ffffff; /* White */
+    --card-bg-color: #fce4ec; /* Light Pink for cards */
+    --card-hover-bg-color: #f8bbd0; /* Hover color */
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    color: var(--primary-text-color);
+    background-color: var(--bg-color);
+}
+
+p {
+    font-family: "Roboto", sans-serif;
+    color: var(--secondary-text-color);
+    line-height: 1.4rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.container {
+    max-width: 1180px;
+    margin-inline: auto;
+    overflow: hidden;
+}
+
+nav {
+    background-color: var(--bg-color);
+    box-shadow: 0 0 4px #bbd0e2;
+    position: fixed;
+    top: 0;
+    z-index: 99;
+    left: 0;
+    right: 0;
+}
+
+.main-nav {
+    justify-content: space-between;
+    padding-block: 8px;
+}
+
+.nav-links ul {
+    gap: 16px;
+}
+
+.hover-link {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.hover-link:hover {
+    transform: translateY(-2px);
+    color: var(--secondary-text-color);
+}
+
+.nav-item.active {
+    color: var(--secondary-text-color);
+}
+
+.search-bar {
+    height: 32px;
+    gap: 8px;
+}
+
+.news-input {
+    width: 200px;
+    height: 100%;
+    padding-inline: 12px;
+    border-radius: 4px;
+    border: 2px solid #bbd0e2;
+    font-family: "Roboto", sans-serif;
+}
+
+.search-button {
+    background-color: var(--primary-text-color);
+    color: white;
+    padding: 8px 24px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: "Roboto", sans-serif;
+    transition: transform 0.2s ease;
+}
+
+.search-button:hover {
+    transform: translateY(-2px);
+    background-color: var(--secondary-text-color);
+}
+
+.zoom-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.zoom-button {
+    background-color: var(--primary-text-color);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-size: 20px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.zoom-button:hover {
+    transform: translateY(-2px);
+    background-color: var(--secondary-text-color);
+}
+
+.language-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.lang-button {
+    background-color: var(--primary-text-color);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: transform 0.2s ease;
+}
+
+.lang-button:hover {
+    transform: translateY(-2px);
+    background-color: var(--secondary-text-color);
+}
+
+main {
+    padding-block: 20px;
+    margin-top: 80px;
+}
+
+.cards-container {
+    justify-content: space-between;
+    flex-wrap: wrap;
+    row-gap: 20px;
+    align-items: start;
+}
+
+.card {
+    width: 360px;
+    min-height: 400px;
+    box-shadow: 0 0 4px #d4ecff;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: var(--card-bg-color);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 1px 1px 8px #d4ecff;
+    background-color: var(--card-hover-bg-color);
+    transform: translateY(-2px);
+}
+
+.card-header img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 12px;
+}
+
+.news-source {
+    margin-block: 12px;
+}
